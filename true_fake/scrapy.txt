@@ -1,0 +1,15 @@
+
+scrapy shell https://ceticismopolitico.com/2019/02/07/espionagem-em-grupo-anti-censura-e-novo-papelao-do-terca-livre
+texthtml = response.xpath('//article').extract_first()
+
+
+
+
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(texthtml, 'html.parser')
+soup.get_text()
+
+
+
+with open('desconhecidos/noticia1.txt', 'a') as file:
+      file.write(soup.get_text())
